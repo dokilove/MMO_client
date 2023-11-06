@@ -1,5 +1,5 @@
-﻿using DummyClient;
-using ServerCore;
+﻿using ServerCore;
+using UnityEngine;
 
 class PacketHandler
 {
@@ -7,6 +7,11 @@ class PacketHandler
     {
         S_Chat chatPacket = packet as S_Chat;
         ServerSession serverSession = session as ServerSession;
+
+        if (chatPacket.playerId == 1)
+        {
+            Debug.Log(chatPacket.chat);
+        }
 
         //if (chatPacket.playerId == 1)
             //Console.WriteLine(chatPacket.chat);

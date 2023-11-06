@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ServerCore
@@ -44,9 +45,6 @@ namespace ServerCore
 
         public ArraySegment<byte> Open(int reserveSize)
         {
-            if (reserveSize > FreeSize)
-                return null;
-
             return new ArraySegment<byte>(_buffer, _usedSize, reserveSize);
 
         }
